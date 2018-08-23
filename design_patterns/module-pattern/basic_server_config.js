@@ -15,10 +15,13 @@ var basicServerConfig = (function () {
         }  
     }; 
 })(); 
+
 basicServerConfig.init(); 
-//"Initializing the server" 
+
+// Initializing the server
 basicServerConfig.updateStartup({
     cacheTimeout:60,    
     locale:"pt_BR"
 }); 
+
 //60, pt-br 

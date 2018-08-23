@@ -1,4 +1,4 @@
-// Revealing Module Pattern (RMP) - refere-se a estrutura utilizada para criar módulos.
+// Revealing Module Pattern (RMP) - refere-se a estrutura utilizada     .
 
 var basicServerConfigRMP = (function () {  
     
