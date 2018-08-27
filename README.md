@@ -1,3 +1,4 @@
+
 # JavaScript
 
 
@@ -304,7 +305,6 @@ https://www.youtube.com/watch?v=hO7mzO83N1Q
 
 - Referências
 https://github.com/DavidVujic/vanillajs-components/blob/master/src/app.js#L19
-
 
 
 
