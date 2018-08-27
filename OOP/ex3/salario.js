@@ -8,6 +8,7 @@ function getWage(baseSalary, overtime, rate) {
     return baseSalary + (overtime * rate);
 }
 
+
 getWage(baseSalary, overtime, rate);
 
 // Abordagem orientação à objetos 
