@@ -20,13 +20,15 @@
 * Value Types (Primitives) ou Tipos por Valor (Primitivos): Number, String, Boolean, Symbol, undefined, null;
 * Reference Types ou Tipos por Referência: Object, Function, Array;
 
-    // variáveis independentes (value type)
+ Variáveis independentes (value type):
+
     let x = 10;
     let y = x;
     x = 20;
     console.log(x, y);
 
-    // referência ou apontamento de memória
+Referência ou apontamento de memória
+
     let x = { value: 10 };
     let y = x;
     x.value = 20;
