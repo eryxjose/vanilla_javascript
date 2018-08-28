@@ -27,7 +27,7 @@
     x = 20;
     console.log(x, y);
 
-Referência ou apontamento de memória
+Referência ou apontamento de memória:
 
     let x = { value: 10 };
     let y = x;
