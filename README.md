@@ -22,15 +22,15 @@ Você pode codificar diretamente no seu navegador, utilizar um editor online (ex
 
 ## Declaração de variáveis
 
-* O comando var é utilizado para declarar uma variável de qualquer um dos tipos listados acima, e você pode alterar o tipo de informação armazenada. Veja alguns exemplos:
+O comando var é utilizado para declarar uma variável de qualquer um dos tipos listados acima, e você pode alterar o tipo de informação armazenada. Veja alguns exemplos:
 
 var x = 1;
 
-* A declaração da variável x com o valor 1 está sendo utilizada para demonstrar a maneira mais simples de criar uma variável e ao mesmo tempo definir seu valor inicial que poderá ser alterado posteriormente. Você também pode declarar a variável (x em nosso exemplo) sem atribuir um valor inical. Veja a seguir:
+A declaração da variável x com o valor 1 está sendo utilizada para demonstrar a maneira mais simples de criar uma variável e ao mesmo tempo definir seu valor inicial que poderá ser alterado posteriormente. Você também pode declarar a variável (x em nosso exemplo) sem atribuir um valor inical. Veja a seguir:
 
 var x;
 
-* Você pode alterar o valor da variável x por um valor literal ou por uma chamada de função que retorne um valor. Veja alguns exemplos:
+Você pode alterar o valor da variável x por um valor literal ou por uma chamada de função que retorne um valor. Veja alguns exemplos:
 
 x = 12; // Atribui o valor 12 a valirável x.
 x = 12 + 3; // Atribui o resultado da soma dos valores 12 e 3.
@@ -41,7 +41,22 @@ x = [2,44,14,89,41,63]; // Array de números
 x = ["a","b","c"]; // Array de strings
 x = [{id:1,titulo:'a'},{id:2,titulo:'b'},{id:3,titulo:'c'}]; // Array de objetos
 
-* Todas as atribuições ilustradas acima também valem para os comandos let e const disponibilizados oficialmente no ECMAScript 6/2015. A diferença entre os comandos de atribuição refere-se ao escopo e a permissão de alteração do valor. O comando let é válido apenas para o bloco onde foi declarado e o comando const determina que o valor não possa ser alterado.
+Todas as atribuições ilustradas acima também valem para os comandos let e const disponibilizados oficialmente no ECMAScript 6/2015. A diferença entre os comandos de atribuição refere-se ao escopo e a permissão de alteração do valor. O comando let é válido apenas para o bloco onde foi declarado e o comando const determina que o valor não possa ser alterado.
+
+Relevante comentar que a problemática em torno do uso de let e const ocorre porque estes comandos foram incluídos oficialmente na versão ECMAScript6/2015 e portanto funcionarão apenas para as versões de navegadores lançadas posteriormente. Caso haja determinação para sua aplicação suportar versões mais antigas dos navegadores, uma das soluções possívels é utilizar um transpiler para gerar diferentes versões do seu código. Abordaremos este tema adiante.
+
+
+## Literais
+
+Os literais são utilizados para simplificar a criação de tipos comuns da linguagem. Por exemplo:
+
+    var x = {};
+
+O literal {} acima equivale ao construtor ilustrado abaixo:
+
+    var x = new Object();
+
+Da mesma forma, '', "", e ´´ são literais para o tipo String, true e false são literais para o tipo Boolean, os números inteiros 1, 2, 3, etc., são literia para o tipo Number.
 
 ## Tipos 
 
@@ -61,8 +76,6 @@ Referência ou apontamento de memória:
     let y = x;
     x.value = 20;
     console.log(x, y);
-
-
 
 
 # Programação Orientada a Objetos 
@@ -128,7 +141,8 @@ Objetos Literais podem conter propriedades e métodos (funções) mas caso seja 
 
 ### Objetos criados com Factories e Constructors
 
-    // Factory Function
+Factory Function
+
     function createCircle(radius) {
         return {
             radius: 1,
@@ -139,9 +153,9 @@ Objetos Literais podem conter propriedades e métodos (funções) mas caso seja 
     }
     const circulo1 = createCircle(1);
 
-    // Constructor Function
+Constructor Function
+
     function Circle(radius) {
-        // uso de this para referenciar o objeto
         this.radius = radius;
         this.draw = function() {
             console.log('draw');
@@ -150,7 +164,9 @@ Objetos Literais podem conter propriedades e métodos (funções) mas caso seja 
     const circulo2 = new Circle(1); 
 
 
-Abstração
+Abstração e Encapsulamento
+
+Ao esconder a propriedade indice e o método multiplicarIndiceRadius, estamos fazendo uso do princípio da Abstração. E ao agrupar todos os elementos que compõem o objeto Circle em uma unidade, utilizamos o princípio do Ecapsulamento.
 
 Utilize o princípio da Abstração (Abstraction) para ocultar os detalhes da implementação e disponibilizar apenas o principal. Veja a criação de uma propriedade privada utilizando como base o exemplo anterior.
 
@@ -167,13 +183,11 @@ Utilize o princípio da Abstração (Abstraction) para ocultar os detalhes da im
     const circulo2 = new Circle(2); 
     circulo2.draw();
 
-Ao esconder a propriedade indice e o método multiplicarIndiceRadius, estamos fazendo uso do princípio da Abstração. E ao agrupar todos os elementos que compõem o objeto Circle em uma unidade, utilizamos o princípio do Ecapsulamento.
+Em objetos, as variáveis são chamdas de propriedades e função é método. A construção de uma unidade com características e comportamentos relacionados é denominado Encapsulamento.
 
-Variáveis também são chamdas de propriedades e funções podem ser chamadas de métodos. A construção de uma unidade com características e comportamentos relacionados é denominado Encapsulamento.
+Demonstração: comparação entre o paradigma da programação estruturada com a orientada a objetos
 
-Demonstração:
-
-O código abaixo utiliza uma abordagem estruturada (não orientada à objetos) com a declaração de algumas variáveis e uma função sem qualquer vínculo de relacionamento entre estes elementos.
+O código abaixo utiliza uma abordagem estruturada (não orientada a objetos) com a declaração de algumas variáveis e uma função sem qualquer vínculo ou regra que reforce o relacionamento entre estes elementos.
 
     let variacaoVelocidade = 10;
     let variacaoTempo = 2;
@@ -195,21 +209,6 @@ Ao implementar o código acima utilizando a abordagem orientada à objetos, defi
 
 
 
-
-Atividades propostas:
-
-* Utilize o console para verificar os objetos circulo1 e circulo2
-* Utilize o console para verificar a propriedade constructor dos dois objetos
-
-Os literais são utilizados para simplificar a criação de tipos comuns da linguagem. Por exemplo:
-
-    var x = {};
-
-O literal {} acima equivale ao construtor ilustrado abaixo:
-
-    var x = new Object();
-
-Da mesma forma, '', "", e ´´ são literais para o tipo String, true e false são literais para o tipo Boolean, os números inteiros 1, 2, 3, etc., são literia para o tipo Number.
 
 
 ### Propriedades
