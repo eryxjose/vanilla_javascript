@@ -12,6 +12,7 @@
 * Faça um clone git ou download do repositório de exemplos utilizando o comando abaixo 
 
 
+#
 # Fundamentos do Javascript
 
 JavaScript é uma linguagem amplamente utilizada na atualidade, disponível em diversos tipos de dispositivos com capacidade de execução no cliente e no servidor.
