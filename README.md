@@ -146,7 +146,7 @@ Factory Function
 
     function createCircle(radius) {
         return {
-            radius: 1,
+            radius: radius,
             draw: function() {
                 console.log('draw');
             }
@@ -171,18 +171,25 @@ Ao esconder a propriedade indice e o método multiplicarIndiceRadius, estamos fa
 
 Utilize o princípio da Abstração (Abstraction) para ocultar os detalhes da implementação e disponibilizar apenas o principal. Veja a criação de uma propriedade privada utilizando como base o exemplo anterior.
 
-    function Circle(radius) {
-        var indice = 1.1;
-        var multiplicarIndiceRadius = function() {
-            return radius * indice;
-        };
+    function Circle(radius) {            
+        // props públicas
         this.radius = radius;
-        this.draw = function() {
-            console.log(multiplicarIndiceRadius());
+        this.draw = executaDraw;
+        // props privadas
+        var indice = 1.2;
+        var calculaIndice = executaCalculoIndice;
+        ///////////////////////////////////////
+        function executaCalculoIndice(r) {
+            return r * indice;
+        }
+        function executaDraw() {
+            console.log(calculaIndice(this.radius));
         }
     }
-    const circulo2 = new Circle(2); 
+    const circulo2 = new Circle(1); 
     circulo2.draw();
+
+No código ilustrado acima, é relevante observar que precisamos passar a propriedade this.radius como parâmetro para o método privado calculaIndice que não pode utilizar diretmente as propriedades públicas do objeto.
 
 Em objetos, as variáveis são chamdas de propriedades e função é método. A construção de uma unidade com características e comportamentos relacionados é denominado Encapsulamento.
 
