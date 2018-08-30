@@ -12,7 +12,6 @@
 * Faça um clone git ou download do repositório de exemplos utilizando o comando abaixo 
 
 
-#
 # Fundamentos do Javascript
 
 JavaScript é uma linguagem amplamente utilizada na atualidade, disponível em diversos tipos de dispositivos com capacidade de execução no cliente e no servidor.
@@ -78,6 +77,22 @@ Referência ou apontamento de memória:
     x.value = 20;
     console.log(x, y);
 
+## Document Object Model - DOM
+
+O DOM pode ser definido uma representação em memória da página web carregada no navegador. É através deste objeto que o javascript consegue manipular conteúdo e estrutura além de definir comportamentos para diferentes eventos.
+
+Importante observar que o objeto DOM precisa estar carregado antes de quaisquer comandos JavaScript. Por esta razão, é necessário definir ou referenciar seus scripts no final do documento html, imediatamente antes de fechar a tag body.
+
+Você também pode verificar se o DOM já foi carregado utilizando a propriedade readyState do objeto document e definir um método para ser executado quando o evento onload for disparado sinalizando o carregamento concluído. Veja o exemplo abaixo:
+
+    if(document.readyState === "complete") {
+        // DOM carregado e pronto para uso!
+    } else {
+        window.addEventListener("onload", function () {/* ... */}, false);
+        // ou document.addEventListener("DOMContentLoaded", function () {/* ... */}, false);
+    }
+
+O código acima pode ser colocado na tag head do documento html ou em qualquer posição porque estamos verificando o carregamento e definindo um método a ser disparado quando o evento onload ocorrer. 
 
 # Programação Orientada a Objetos 
 
@@ -358,6 +373,21 @@ https://www.youtube.com/watch?v=hO7mzO83N1Q
 
 W3C Developers Tools
 http://w3c.github.io/developers/tools/
+
+Javascript Engines
+https://developer.mozilla.org/fr/docs/SpiderMonkey
+https://developer.apple.com/reference/javascriptcore
+https://developers.google.com/v8/
+https://github.com/Microsoft/ChakraCore
+
+Editores de Código
+https://code.visualstudio.com/download
+https://atom.io/
+http://brackets.io/
+https://notepad-plus-plus.org/
+https://netbeans.org/
+https://eclipse.org/
+
 
 * Módulos
 
