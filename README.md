@@ -366,35 +366,5 @@ Exemplo 2 - O exemplo abaixo mostra o uso de arrow function passada como parâme
   const numbers = [1,2,3];
   const result = numbers.map(n => n * 2);
 
-* Referências
-
-JavaScript Patterns for 2017 - Scott Allen
-https://www.youtube.com/watch?v=hO7mzO83N1Q
-
-W3C Developers Tools
-http://w3c.github.io/developers/tools/
-
-Javascript Engines
-https://developer.mozilla.org/fr/docs/SpiderMonkey
-https://developer.apple.com/reference/javascriptcore
-https://developers.google.com/v8/
-https://github.com/Microsoft/ChakraCore
-
-Editores de Código
-https://code.visualstudio.com/download
-https://atom.io/
-http://brackets.io/
-https://notepad-plus-plus.org/
-https://netbeans.org/
-https://eclipse.org/
-
-
-* Módulos
-
-- Referências
-https://github.com/DavidVujic/vanillajs-components/blob/master/src/app.js#L19
-
-
-
 
 
