@@ -1,3 +1,6 @@
+
+// Módulos são criados com a definição de uma expressão IIFE.
+
 var basicServerConfig = (function () {  
     var environment= "production";  
     startupParams= {    
@@ -18,7 +21,7 @@ var basicServerConfig = (function () {
 
 basicServerConfig.init(); 
 
-// Initializing the server
+// Atualizando informações de configuração com um objeto literal
 basicServerConfig.updateStartup({
     cacheTimeout:60,    
     locale:"pt_BR"

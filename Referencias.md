@@ -32,6 +32,11 @@ http://paperjs.org/
 Ferramentas online
 https://caniuse.com/#
 
+Exemplos de vanilla javascript
+https://codepen.io/w3devcampus/pen/VPOqJG
+https://codepen.io/w3devcampus/pen/ygWZEP
+https://codepen.io/w3devcampus/pen/zNQbve
+https://codepen.io/w3devcampus/pen/oBRVgv
 
 
 * Módulos

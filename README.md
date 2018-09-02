@@ -11,6 +11,8 @@
 * Crie uma pasta para seus projetos (ex.: c:\projetos)
 * Faça um clone git ou download do repositório de exemplos utilizando o comando abaixo 
 
+    git clone https://github.com/eryxjose/vanilla_javascript.git
+
 
 # Fundamentos do Javascript
 

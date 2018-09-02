@@ -8,7 +8,6 @@ function getWage(baseSalary, overtime, rate) {
     return baseSalary + (overtime * rate);
 }
 
-
 getWage(baseSalary, overtime, rate);
 
 // Abordagem orientação à objetos 
@@ -21,25 +20,7 @@ let funcionario = {
     getWage: function() {
         return this.baseSalary + (this.overtime * this.rate);
     }
-}
+};
 
 funcionario.getWage();
 
-// Criando um objeto utilizando Factory
-function createCircle(radius) {
-    return {
-        radius: radius,
-        draw: function() {
-            console.log('draw');
-        }
-    };
-}
-
-// Criando um objeto utilizando Constructor
-function Circle(radius) {
-    this.radius = radius;
-    this.draw = function() {
-        console.log('draw');
-    }
-}
-const outroCirculo = new Circle(1);

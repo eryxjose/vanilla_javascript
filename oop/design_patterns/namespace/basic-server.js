@@ -9,7 +9,7 @@ SERVER.basicServerConfigRMP = (function () {
     
     startupParams = {    
         cacheTimeout: 30,    
-        locale: "pt_BR"  
+        locale: "en"  
     };
     
     return {    
@@ -17,7 +17,7 @@ SERVER.basicServerConfigRMP = (function () {
         updateStartup: updateStartup
     };
 
-    ///////
+    /////// Implementação
   
     function getStartupParams() {
         console.log( "Iniciando servidor..." );
@@ -30,10 +30,12 @@ SERVER.basicServerConfigRMP = (function () {
     }  
      
 })(); 
+
+// Consumindo o objeto basicServerConfigRMP
 basicServerConfigRMP.init(); 
-//"Initializing the server" 
 basicServerConfigRMP.updateStartup({
     cacheTimeout:60,    
-    locale:"en_US"
+    locale:"pt-br"
 }); 
-//60, pt-br 
+
+// Resultado: 60, pt-br 

@@ -16,7 +16,6 @@ function Cronometro() {
             throw new Error('O cronômetro não está em execução.');
 
         running = false;
-
         endTime = new Date();
         const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
         duration += seconds; 
