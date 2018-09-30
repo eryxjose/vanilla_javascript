@@ -1,0 +1,11 @@
+{
+  "name": "stories",
+  "version": "0.0.1",
+  "description": "Módulo para gerenciamento de User Stories e Backlog de atividade em projetos ágeis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eryxjose",
+  "license": "MIT"
+}

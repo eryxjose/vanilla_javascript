@@ -45,7 +45,7 @@ x = [{id:1,titulo:'a'},{id:2,titulo:'b'},{id:3,titulo:'c'}]; // Array de objetos
 
 Todas as atribuições ilustradas acima também valem para os comandos let e const disponibilizados oficialmente no ECMAScript 6/2015. A diferença entre os comandos de atribuição refere-se ao escopo e a permissão de alteração do valor. O comando let é válido apenas para o bloco onde foi declarado e o comando const determina que o valor não possa ser alterado.
 
-Relevante comentar que a problemática em torno do uso de let e const ocorre porque estes comandos foram incluídos oficialmente na versão ECMAScript6/2015 e portanto funcionarão apenas para as versões de navegadores lançadas posteriormente. Caso haja determinação para sua aplicação suportar versões mais antigas dos navegadores, uma das soluções possívels é utilizar um transpiler para gerar diferentes versões do seu código. Abordaremos este tema adiante.
+Relevante comentar que a problemática em torno do uso de let e const ocorre porque estes comandos foram incluídos oficialmente na versão ECMAScript 6/2015 e portanto funcionarão apenas para as versões de navegadores lançadas posteriormente. Caso haja determinação para sua aplicação suportar versões mais antigas dos navegadores, uma das soluções possívels é utilizar um transpiler para gerar diferentes versões do seu código. Abordaremos este tema adiante.
 
 
 ## Literais
@@ -58,7 +58,7 @@ O literal {} acima equivale ao construtor ilustrado abaixo:
 
     var x = new Object();
 
-Da mesma forma, '', "", e ´´ são literais para o tipo String, true e false são literais para o tipo Boolean, os números inteiros 1, 2, 3, etc., são literia para o tipo Number.
+Da mesma forma, '', "", e ´´ são literais para o tipo String, true e false são literais para o tipo Boolean, os números inteiros 1, 2, 3, etc., são literia para o tipo Number. No exemplo de atribuições para x do tópico Declaração de Variaveis acima, foram utilizados literais e expressões.
 
 ## Tipos 
 
@@ -103,12 +103,19 @@ A programação orientada a objetos é um conceito ou abordagem de desenvolvimen
 
 ## Princípios
 
-* Alta coesão para criação de objetos e baixo acoplamento reduzindo ou eliminando dependências entre objetos;
-* Interface de uso simples e detalhes de implementação ocultos e alterações transparentes;
-* Programe para interfaces e não para implementações;
-* Composição de objetos preferencialmente em relação a herança de classes;
-* ...
+O livro Design Patterns: Elements of Reusable Object-Oriented Software (de Gang of Four) definiu dois princípios fundamentais:
 
+* Programe para interface e não para implementação
+* Composição de objetos preferencialmente a herança
+
+Além dos princípios fundamentais relacionados acima, existem diferentes princípios de design.
+
+1. Identify the aspects of your code that vary and separate them from what stays the same.
+2. Program to an interfce, not an implementation.
+3. Favor composition over inheritance.
+4. Strive for loosely coupled designs
+5. Classes should be open for extension but closed for modification.
+6. A class should have only one reason to change.
 
 ## Benefícios
 
@@ -233,9 +240,6 @@ Ao implementar o código acima utilizando a abordagem orientada à objetos, defi
     MovimentoUniformementeVariado.calcularAceleracao();
 
 
-
-
-
 ### Propriedades
 
 JavaScript é uma linguagem dinâmica ou seja, não tipada, e como consequência, propriedades podem ser criadas ou removidas em tempo de execução. 
@@ -255,7 +259,7 @@ JavaScript é uma linguagem dinâmica ou seja, não tipada, e como consequência
     // definição de propriedade utilizando sintaxe Bracket Notation
     circulo1['location'] = { x: 1 };
 
-A sintade Bracket Notation é útil para nomes de propriedades que utilizem caracteres especiais, espaços, utilizem sequências numeradas, entre outros.
+A sintaxe Bracket Notation é útil para nomes de propriedades que utilizem caracteres especiais, espaços, utilizem sequências numeradas, entre outros.
 
 Utilize o comando delete para remover propriedades de um objeto em tempo de execução. 
 
@@ -264,7 +268,7 @@ Utilize o comando delete para remover propriedades de um objeto em tempo de exec
 Utilize for in para iterar nas propriedades de um objeto.
 
     for (let key in circulo1) {
-        console.log(key, ccirculo[key]);
+        console.log(key, circulo[key]);
     }
 
 Utilize typeof para verificar o tipo da propriedade.
@@ -284,16 +288,54 @@ Utilize o operador in para verificar se uma propriedade existe no objeto.
     if ('radius' in circulo1)
         console.log('existe!');
 
+Atributos de propriedades podem definir se a propriedade estará visível e exibida através do método for in descrito anteriormente, podem definir a possibilidade de alteração de valor, ou a possibilidade de exclusão da propriedade.
+
+Os tributos podem ser obtidos através do método Object.getOwnPropertyDescriptor passando o prototype e a propriedade (ou método) que deseja visualizar os atributos. Veja o exemplo abaixo para exibir os atributos da propriedade (função) toString.
+
+    let person = { name: 'eryx'};
+    let objectBase = Object.getPrototypeOf(person);
+    let descriptor = Object.getOwnPropertyDescriptor(objectBase, 'toString');
+    console.log(descriptor);
 
 
-============
+## Prototype e Prototypical Inheritance 
 
+Todo objeto (função) em JavaScript possui um objeto pai denominado prototype, cujas propriedades são herdadas e podem ser modificadas. Consequentemente, você pode utilizar novas propriedades para objetos conforme ilustração abaixo:
 
-## Prototype
+    function Circle(radius) {
+        // Propriedades da Instância
+        this.radius = radius;
+    }
 
+    // Propriedades Prototype
+    Circle.prototype.draw = function() {
+        console.log('draw');
+    };
+
+    // Sobrescrevendo a propriedade toString do objeto base Object
+    Circle.prototype.toString = function() {
+        return 'Círculo com raio ' + this.radius;
+    }
+
+    const c1 = new Circle(1);
+    const c2 = new Circle(1);
+
+Object.keys retornará somente as propriedades próprias ou da instância do objeto, aquelas definidas dentro do construtor utilizando this. 
+
+Utilize for in par retornar todas as propriedades, incluindo de instância e prototype.
+
+    // c1 => objeto Circle criado no exemplo anterior
+    for (let key in c1) console.log(key);
+
+Utilize hasOwnProperty para saber se uma propriedade é de instância.
+
+    c1.hasOwnProperty('radius');
+
+Importante: Evite modificar objetos que não sejam de sua autoria porque podem ocorrer conflitos e ou inconsistência do comportamento dos mesmos.
 
 
 ## Prototypical Inheritance
+
 
 
 
